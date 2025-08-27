@@ -50,8 +50,10 @@ public String getName() {
     }
     @Override
     public String toString() {
-        return "Person [name=" 
-        + getName() + ", Lastname=" + getLastname()+ ", id=" + getId()+ ", phone=" + getPhone() + ", age=" + getAge()
-                + "]";
+        return "Person [name=" + getName() 
+        + ", Lastname=" + getLastname()
+        + ", id=" + getId()
+        + ", phone=" + getPhone()
+         + ", age=" + getAge();
     }
 }
