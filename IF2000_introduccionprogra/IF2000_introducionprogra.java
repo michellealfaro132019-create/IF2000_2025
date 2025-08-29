@@ -1,7 +1,9 @@
 package IF2000_introduccionprogra;
+
+
 import logic.Ejercicios_semana2_PracticasEnClase;
 
-  
+
 public class IF2000_introducionprogra {
     public static void main(String[] args) {
         
@@ -29,5 +31,12 @@ public class IF2000_introducionprogra {
    
      Ejercicios_semana2_PracticasEnClase ej = new Ejercicios_semana2_PracticasEnClase (); 
         ej.Piramide_1(5); 
-        }
+         ej.Cuadrado_lab(5,9); 
+         ej.Cuadrado_vacio(5,5); 
+         ej.Piramide_C(10); 
+         ej.Piramide_b( 12);
+         ej.Ejercicio_D(); 
+         ej.Ejercicio_E(); 
+         ej.Ejercicio_F(); 
+    }
 }
