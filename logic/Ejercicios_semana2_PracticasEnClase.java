@@ -138,6 +138,45 @@ public void Ejercicio_F(){
 
         }
     }
+    public void conteo_descendente(int n){
+    int[] numero=new int[n];
+    Scanner sc=new Scanner(System.in);
+    System.out.println("ingrese 100 numeros enteros:");
+    for(int i=0; i<100; i++){
+        System.out.print("numero"+(i+1)+":");
+        numero[i]=sc.nextInt();
+    }
+    Arrays.sort(numero);
+    System.out.println("Los numeros ordenados de manera descendente son:");
+    for(int i=n-1; i>=0; i--){
+        System.out.print(numero[i] + " ");
+    }
+    System.out.println();
+
+}
+public void mostrarTableroDamas() {
+    char[][] tablero = new char[8][8];
+    
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            if (i < 3 && (i + j) % 2 == 1) {
+                tablero[i][j] = 'N'; // Fichas negras
+            } else if (i > 4 && (i + j) % 2 == 1) {
+                tablero[i][j] = 'R'; // Fichas rojas
+            } else {
+                tablero[i][j] = '-'; // Casilla vacía
+            }
+        }
+    }
+    System.out.println("Tablero inicial de damas:");
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            System.out.print(tablero[i][j] + " ");
+        }
+        System.out.println();
+    }
+    System.out.println("==============================");
+}
 }
 
 
