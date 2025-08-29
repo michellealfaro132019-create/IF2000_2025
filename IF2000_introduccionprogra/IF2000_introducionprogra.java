@@ -1,7 +1,7 @@
 package IF2000_introduccionprogra;
 
 
-import logic.Ejercicios_semana2_PracticasEnClase;
+import logic.*;
 
 
 public class IF2000_introducionprogra {
@@ -38,5 +38,19 @@ public class IF2000_introducionprogra {
          ej.Ejercicio_D(); 
          ej.Ejercicio_E(); 
          ej.Ejercicio_F(); 
+
+    Lab_1 lab1 = new Lab_1();
+    lab1.ejercicio1();
+    lab1.ejercicio2();
+    lab1.ejercicio3();
+    lab1.ejercicio4();
+    lab1.ejercicio5();
+    lab1.ejercicio6();
+    lab1.ejercicio7();
+    lab1.ejercicio8();
+    lab1.ejercicio9();
+    lab1.ejercicio10();
+    lab1.ejercicio11();
+    lab1.ejercicio12();
     }
 }

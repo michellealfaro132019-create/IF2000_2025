@@ -1,224 +1,137 @@
 package logic;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Lab_1 {
-    public   Lab_1() {
-    }
-    public  void Ejercio_1(){
-       
-       int numero1;
-        int resultado=0;
+    public Lab_1() {}
 
-      
-        Scanner sc=new Scanner(System.in);
-        System.out.print("Ingrese un numero:");
-        numero1=sc.nextInt();
-
-        System.out.println("======================");
-
-       
-        if(numero1%2==0){
-             resultado=numero1;
-             System.out.println("El numero es par:"+resultado);
-        }else{
-             resultado=numero1;
-             System.out.println("El numero es impar:"+resultado);
-        }
-    }
-    public void Ejecicio_2(){
-       
+    public void ejercicio1() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Ingrese un numero:");
-        int numero =sc.nextInt();
+        System.out.print("Ingrese un número: ");
+        int n = sc.nextInt();
+        System.out.println("======================");
+        System.out.println("El número es " + (n % 2 == 0 ? "par: " : "impar: ") + n);
+    }
 
-        int valorAbsoluto=(numero<0)?-numero:numero;
-        System.out.println("El valor absoluto es:"+valorAbsoluto);
-}
-    public void Ejercicio_3(){
-       
+    public void ejercicio2() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Ingrese un número: ");
+        int n = sc.nextInt();
+        System.out.println("El valor absoluto es: " + Math.abs(n));
+    }
 
-        int suma=0;
-        for(int i=3;i<=99;i=i+3){
+    public void ejercicio3() {
+        int suma = 0;
+        for (int i = 3; i <= 99; i += 3) {
             System.out.println(i);
-            suma=suma+i;
+            suma += i;
         }
     }
-    public void Ejercicio_4(){
-        
-        Scanner sc=new Scanner(System.in);
-        int[]numeros=new int[3];
-        System.out.println("Ingrese el primer numero:");
-        numeros[0]=sc.nextInt();
-        System.out.println("Ingrese el segundo numero:");
-        numeros[1]=sc.nextInt();
-        System.out.println("Ingrese el tercero numero:");
-        numeros[2]=sc.nextInt();
 
-        java.util.Arrays.sort(numeros);
-        System.out.println("Los numeros ordenados de forma ascendente son:"+numeros[0]+","+numeros[1]+","+numeros[2]);
+    public void ejercicio4() {
+        Scanner sc = new Scanner(System.in);
+        int[] nums = new int[3];
+        for (int i = 0; i < 3; i++) {
+            System.out.print("Ingrese el número " + (i + 1) + ": ");
+            nums[i] = sc.nextInt();
+        }
+        Arrays.sort(nums);
+        System.out.println("Números ordenados: " + nums[0] + ", " + nums[1] + ", " + nums[2]);
     }
-    public void Ejercicio_5(){
-       
-        Scanner sc=new Scanner(System.in);
-        int numero1,numero2,resultado;
-        System.out.println("Ingrese el primer numero:");
-        numero1=sc.nextInt();
-        System.out.println("Ingrese el segundo numero:");
-        numero2=sc.nextInt();
-        if(numero1==numero2){
-            resultado=numero1*numero2;
-            System.out.println("Los numeros son iguales, su multiplicacion es:"+resultado);
-        }else if(numero1>numero2){
-            resultado=numero1-numero2;
-            System.out.println("El primer numero es mayor que el segundo, su resta es:"+resultado);
-        }else{
-            resultado=numero1+numero2;
-            System.out.println("El segundo numero es mayor que el primero,su suma es:"+resultado);
-        }
-        }
-        public void Ejercicio_6(){
-          
 
-            Scanner sc=new Scanner(System.in);
-            int nota;
-            boolean nota_10=false;
-            while (nota_10==false) {
-                System.out.println("Ingrese una nota entre 0 y 10 (-1 para terminar):");
-               nota=sc.nextInt();
-               if(nota==10){
-                nota_10=true;
-                System.out.println("Hubo uno con valor 10");
-               }else if(nota==-1){
-                System.out.println("No hubo ninguna con valor 10");
+    public void ejercicio5() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Ingrese el primer número: ");
+        int a = sc.nextInt();
+        System.out.print("Ingrese el segundo número: ");
+        int b = sc.nextInt();
+        if (a == b)
+            System.out.println("Iguales, multiplicación: " + (a * b));
+        else if (a > b)
+            System.out.println("El primero es mayor, resta: " + (a - b));
+        else
+            System.out.println("El segundo es mayor, suma: " + (a + b));
+    }
+
+    public void ejercicio6() {
+        Scanner sc = new Scanner(System.in);
+        boolean found10 = false;
+        while (!found10) {
+            System.out.print("Ingrese una nota (0-10, -1 para terminar): ");
+            int nota = sc.nextInt();
+            if (nota == 10) {
+                found10 = true;
+                System.out.println("Hubo una nota 10");
+            } else if (nota == -1) {
+                System.out.println("No hubo ninguna nota 10");
                 break;
-               }else if(nota<0||nota>10){
-                System.out.println("Nota invalida,ingrese una nota entre 0 y 10");            
+            } else if (nota < 0 || nota > 10) {
+                System.out.println("Nota inválida");
             }
-
         }
+    }
+
+    public void ejercicio7() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Ingrese su edad: ");
+        int edad = sc.nextInt();
+        System.out.print("Ingrese su sexo (F/M): ");
+        String sexo = sc.next();
+        double pulsos = sexo.equalsIgnoreCase("F") ? (220 - edad) / 10.0 : (210 - edad) / 10.0;
+        System.out.println("Pulsaciones por 10 seg: " + pulsos);
+    }
+
+    public void ejercicio8() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Salario mensual: ");
+        double salario = sc.nextDouble();
+        System.out.print("Años en la empresa: ");
+        int años = sc.nextInt();
+        double utilidad = salario * (años < 1 ? 0.05 : años < 2 ? 0.07 : años < 5 ? 0.10 : años < 10 ? 0.15 : 0.20);
+        System.out.println("Utilidad: " + utilidad);
+    }
+
+    public void ejercicio9() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Ingrese un número: ");
+        int n = sc.nextInt();
+        int divisores = 0;
+        for (int i = 1; i <= n; i++)
+            if (n % i == 0) divisores++;
+        System.out.println("Divisores: " + divisores);
+    }
+
+    public void ejercicio10() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Cantidad de computadoras: ");
+        int cantidad = sc.nextInt();
+        double precio = 11000 * cantidad;
+        double descuento = cantidad < 5 ? 0.10 : cantidad < 10 ? 0.20 : 0.40;
+        double monto = precio - precio * descuento;
+        System.out.println("Total: " + precio + ", Descuento: " + (precio * descuento) + ", A pagar: " + monto);
+    }
+
+    public void ejercicio11() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Ingrese N: ");
+        int N = sc.nextInt();
+        System.out.println("Primos entre 2 y " + N + ":");
+        for (int i = 2; i <= N; i++) {
+            int div = 0;
+            for (int j = 1; j <= i; j++)
+                if (i % j == 0) div++;
+            if (div == 2) System.out.print(i + " ");
         }
-        public void Ejercicio_7(){
-         
+        System.out.println();
+    }
 
-            Scanner sc=new Scanner(System.in);
-            int edad;
-            String sexo;
-            double numero_pulso;
-
-            System.out.println("Ingrese su edad;");
-            edad=sc.nextInt();
-            System.out.println("Ingrese su sexo (Femenino/Masculino):");
-            sexo=sc.next();
-            if(sexo.equalsIgnoreCase("Femenino")){
-                numero_pulso=(220-edad)/10.0;
-                System.out.println("Su numero de pulsaciones por cada 10 segundos de ejercicio aerobico es:"+numero_pulso);
-            }else if(sexo.equalsIgnoreCase("Masculino")){
-                numero_pulso=(210-edad)/10.0;
-                       System.out.println("Su numero de pulsaciones por cada 10 segundos de ejercicio aerobico es:"+numero_pulso);
-            }
-            }
-            public void Ejercicio_8(){
-               
-
-                    Scanner sc=new Scanner(System.in);
-                    int años_en_la_empresa;
-                    double salario_mensual,utilidad;
-                    System.out.println("Ingrese su salario mensual:");
-                    salario_mensual=sc.nextInt();
-                    System.err.println("Ingrese sus años en la empresa:");
-                    años_en_la_empresa=sc.nextInt();
-                    if(años_en_la_empresa<1){
-                        utilidad=salario_mensual*0.05;
-                        System.out.println("Su utilidad es:"+utilidad);
-                    }else if(años_en_la_empresa>=1&&años_en_la_empresa<2){
-                        utilidad=salario_mensual*0.07;
-                        System.out.println("Su utilidad es:"+utilidad);
-                    }else if(años_en_la_empresa>=2&&años_en_la_empresa<5){
-                        utilidad=salario_mensual*0.10;
-                        System.out.println("Su utilidad es:"+utilidad);
-                    }else if(años_en_la_empresa>=5&&años_en_la_empresa<10){
-                        utilidad=salario_mensual*0.15;
-                        System.out.println("Su utilidad es:"+utilidad);
-                    }else if(años_en_la_empresa>=10){
-                        utilidad=salario_mensual*0.20;
-                        System.out.println("Su utilidad es:"+utilidad);
-                    }
-            }
-                public void Ejercicio_9(){
-                    
-                         
-
-                    Scanner sc =new Scanner(System.in);
-                    int numero,contador=0;
-                    System.out.println("Ingrese el numero:");
-                    numero=sc.nextInt();
-                    for(int i=1;i<=numero; i++){
-                        if(numero%i==0){
-                            contador++;
-                        }
-                        System.out.println("El numero de divisores es:"+contador);
-                    }
-
-            }
-            public void Ejercicio_10(){
-       
-
-                Scanner sc =new Scanner(System.in);
-                int numero_compus;
-                double precio_unitario=11000;
-                double precio_total,descuento,monto_a_pagar;
-                System.out.println("Ingrese el numero de computadoras que desea comprar:");
-                numero_compus=sc.nextInt();
-                precio_total=numero_compus*precio_unitario;
-                if(numero_compus<5){
-                    descuento=precio_total*0.10;
-                    monto_a_pagar=precio_total-descuento;
-                    System.out.println("Cantidad de computadoras compradas:"+numero_compus);
-                    System.out.println("Precio total sin descuento:"+precio_total);
-                    System.out.println("Monto descontado:"+descuento);
-                    System.out.println("Monto total a pagar:"+monto_a_pagar);
-                }else if(numero_compus>=5&&numero_compus<10){
-                    descuento=precio_total*0.20;
-                    monto_a_pagar=precio_total-descuento;
-                    System.out.println("Cantidad de computadoras compradas:"+numero_compus);
-                    System.out.println("Precio total sin descuento:"+precio_total);
-                    System.out.println("Monto descontado:"+descuento);
-                    System.out.println("Monto total a pagar:"+monto_a_pagar);
-                }else if(numero_compus>=10){
-                    descuento=precio_total*0.040;
-                    monto_a_pagar=precio_total-descuento;
-                    System.out.println("Cantidad de computadoras compradas:"+numero_compus);
-                    System.out.println("Precio total sin descuento:"+precio_total);
-                    System.out.println("Monto descontado:"+descuento);
-                    System.out.println("Monto total a pagar:"+monto_a_pagar);
-                }
-
-            }
-            public  void Ejercicio_11(){
-                    Scanner sc = new Scanner(System.in);
-                    int N,contador;
-                    System.out.println("Ingrese un numero natural N:");
-                    N=sc.nextInt();
-                    System.out.println("Los numeros primos entre 2 y "+N+"Son:");
-                    for(int i=2; i<=N;i++){
-                        contador=0;
-                        for(int j=1;j<=i;j++){
-                            if(i%j==0){
-                                contador++;
-                            }
-                            System.out.println("El numero de divisores es:"+contador);
-                        }
-                    }
-            }
-            public void Ejercicio_12(){
-                Scanner sc=new Scanner(System.in);
-                double base,altura,area;
-                System.err.println("Ingrese la base del triangulo:");
-                base=sc.nextDouble();
-                System.err.println("Ingrese la altura del triangulo:");
-                altura=sc.nextDouble();
-                area=(base*altura)/2;
-                System.err.println("El area del triangulo es:"+area);
-            }
+    public void ejercicio12() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Base del triángulo: ");
+        double base = sc.nextDouble();
+        System.out.print("Altura del triángulo: ");
+        double altura = sc.nextDouble();
+        System.out.println("Área: " + (base * altura / 2));
+    }
 }
