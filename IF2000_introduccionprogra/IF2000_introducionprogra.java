@@ -1,9 +1,7 @@
-package IF2000_introduccionprogra;
+/*package IF2000_introduccionprogra;
 
 
 import logic.*;
-
-
 public class IF2000_introducionprogra {
     public static void main(String[] args) {
         
@@ -27,7 +25,7 @@ public class IF2000_introducionprogra {
          *                                     int [][] y; 
          * True or false
          * boolean 
-         */
+        
    
      Ejercicios_semana2_PracticasEnClase ej = new Ejercicios_semana2_PracticasEnClase (); 
         ej.Piramide_1(5); 
@@ -53,4 +51,4 @@ public class IF2000_introducionprogra {
     lab1.ejercicio11();
     lab1.ejercicio12();
     }
-}
+}*/

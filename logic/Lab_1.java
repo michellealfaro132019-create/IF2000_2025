@@ -1,4 +1,4 @@
-package logic;
+/*package logic;
 
 import java.util.Scanner;
 import java.util.Arrays;
@@ -134,4 +134,4 @@ public class Lab_1 {
         double altura = sc.nextDouble();
         System.out.println("Área: " + (base * altura / 2));
     }
-}
+}*/
