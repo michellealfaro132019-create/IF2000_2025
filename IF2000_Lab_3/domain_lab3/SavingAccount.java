@@ -1,21 +1,15 @@
-package IF2000_Lab_3.domainlab3;
+package IF2000_Lab_3.domain_lab3;
 
-public class SavingAccount extends Account{
-    
-    //Atributes
+public class SavingAccount extends Account {
+
     private String initialDate;
     private int months;
-    private float interest;
+    // porcentaje de interés expresado en decimal (ej. 0.05 para 5%)
+    private double interest;
 
-    //Constructor
+    public SavingAccount() {}
 
-    public SavingAccount(String initialDate, int months, float interest) {
-        this.initialDate = initialDate;
-        this.months = months;
-        this.interest = interest;
-    }
-
-    public SavingAccount(String initialDate, int months, float interest, String accountNumber, double balance, Person client) {
+    public SavingAccount(String initialDate, int months, double interest, String accountNumber, double balance, Person client) {
         super(accountNumber, balance, client);
         this.initialDate = initialDate;
         this.months = months;
@@ -38,56 +32,38 @@ public class SavingAccount extends Account{
         this.months = months;
     }
 
-    public float getInterest() {
+    public double getInterest() {
         return interest;
     }
 
-    public void setInterest(float interest) {
+    public void setInterest(double interest) {
         this.interest = interest;
     }
-    
+
     @Override
     public void deposit(double amount) {
-        super.setBalance(this.getBalance()+amount);
+        super.deposit(amount);
     }
 
     @Override
-    public void withdraw(double amount) {
-        if(amount<=this.getBalance())
-            super.setBalance(this.getBalance()-amount);
-        else
-            System.out.println("You dont have enough money");
+    public boolean withdraw(double amount) {
+        return super.withdraw(amount);
     }
 
     @Override
-    public double interestcalculation() {
-        
-        double total;
-        total = this.getMonths()
-                *super.getBalance()
-                *this.getInterest();
-        
-        return super.getBalance()+total; 
-    }//endInterestCalculation
+    public void calcularIntereses() {
+        // interés ganado = meses * saldo * porcentaje
+        double gained = this.getMonths() * this.getBalance() * this.getInterest();
+        this.setBalance(this.getBalance() + gained);
+        // opcional: registrar en bitácora a través del banco
+        if (this.getBank() != null) {
+            this.getBank().getBitacora().addEvent("INTERES", this, gained);
+        }
+    }
 
     @Override
-    public String toString() {   
-        String result="\nAccount Type: SAVING ACCOUNT"
-                +"\n---------------------------------"
-                +"\n Initial date of account: "+this.getInitialDate()
-                +"\n Months of saving: "+this.getMonths()
-                +"\n Interest: "+this.getInterest()
-                +"\n Gained Interest: "+((this.getMonths()
-                                          *super.getBalance()/100)
-                                          +this.getInterest()
-                                        )
-                +"\n Balance after interest: "+this.getBalance()+((this.getMonths()
-                                          *super.getBalance()/100)
-                                          +this.getInterest()
-                                        );             
-        return super.toString()+result; 
-    }//endOfToString()
-    
-    
-    
-}//endClass
+    public String toString() {
+        return super.toString() + " [SavingAccount{initialDate=" + initialDate + ", months=" + months + ", interest=" + interest + "}]";
+    }
+
+}
