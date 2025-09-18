@@ -1,10 +1,22 @@
-/*package IF2000_introduccionprogra;
+package IF2000_introduccionprogra;
 
-
+import java.util.Scanner;
+import domain.Person;
 import logic.*;
 public class IF2000_introducionprogra {
     public static void main(String[] args) {
         
+        Person client1 =
+        new Person("Edgardo" , "Corrales", "1-2323-4545", "63224555", 18); 
+        
+       SavingAccount account1= 
+        new SavingAccount("01-01-2024", 12, 5, "1020482051", 25000, client1);
+
+account1.deposit(3000);
+
+System.out.println(account1.toString() );
+
+
         /*String name = "Lionel"; 
         int age = 40;
      
@@ -50,5 +62,7 @@ public class IF2000_introducionprogra {
     lab1.ejercicio10();
     lab1.ejercicio11();
     lab1.ejercicio12();
+    }*/
     }
-}*/
+}
+
